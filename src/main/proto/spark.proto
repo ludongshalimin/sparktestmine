@@ -1,0 +1,25 @@
+option java_package = "org.training.spark.proto";
+
+
+//用户点击数据，用户ID：itemID
+message NewClickEvent {
+  optional int64 userId = 1;
+  optional int64 itemId = 2;
+}
+
+//以物品的id为键值，其与其他物品之间的相似度
+//采用集合的方式进行
+message ItemSimilarities {
+  repeated ItemSimilarity itemSimilarites = 1;
+}
+
+//物品与物品之间的相似度
+message ItemSimilarity {
+  optional int64 itemId = 1;
+  optional double similarity = 2;
+}
+
+//用于以用户userid为key,一系列itemid为value
+message ItemList {
+ repeated int64 itemIds = 1;
+}
